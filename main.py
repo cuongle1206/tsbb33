@@ -13,7 +13,7 @@ from PIL import Image
 import torch
 from kornia.geometry import axis_angle_to_rotation_matrix
 from kornia.geometry import rotation_matrix_to_axis_angle
-from micro_bundle_adjustment import bundle_adjust
+from micro_bundle_adjustment.api import projection, optimize_calibrated
 
 def projection(X, r, t):
     if len(X.shape) == 1:
@@ -35,12 +35,12 @@ def gold_standard_residuals(X, r, t, x_a, x_b):
 
 if __name__ == "__main__":
     
-    LAB1_IMAGE_DIRECTORY = Path('../tsbb33-datasets/bacchus')
+    LAB1_IMAGE_DIRECTORY = Path('tsbb33-datasets/bacchus')
     K           = np.array([[1660.076384971925*1e-3, 0, 763.9663384634628*1e-3],
                             [0, 1656.285062933074*1e-3, 986.3176281647676*1e-3],
                             [0, 0, 1]]) 
     dist_coeffs = np.array([0.260831, -1.67584, -0.00265474, 0.00115126, 3.48227])
-    mask        = np.asarray(Image.open('../tsbb33-datasets/bacchus/bacchus_mask.png').convert('L'))
+    mask        = np.asarray(Image.open('tsbb33-datasets/bacchus/bacchus_mask.png').convert('L'))
     
     a = []
     for i in range(1,2):
@@ -107,7 +107,7 @@ if __name__ == "__main__":
         for i in range(pr_inline.shape[1]):
             X0[i,:]     = lab1.triangulate_optimal(Cl, Cr, pl_inline[:,i], pr_inline[:,i])
 
-        X_hat, r_hat, t_hat = bundle_adjust(gold_standard_residuals, torch.Tensor(X0), 
+        X_hat, r_hat, t_hat = optimize_calibrated(gold_standard_residuals, torch.Tensor(X0), 
                                             rotation_matrix_to_axis_angle(torch.Tensor(Cl[:3,:3])), torch.Tensor(Cl[:,-1]), 
                                             torch.Tensor(inliers_a.T), torch.Tensor(inliers_b.T))
         

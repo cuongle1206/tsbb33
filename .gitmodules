@@ -1,0 +1,3 @@
+[submodule "micro-bundle-adjustment"]
+	path = micro-bundle-adjustment
+	url = https://github.com/Parskatt/micro-bundle-adjustment.git

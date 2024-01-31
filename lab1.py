@@ -31,7 +31,7 @@ try:
     LAB1_IMAGE_DIRECTORY = Path(os.environ['CVL_LAB1_IMAGEDIR'])
 except KeyError:
     # LAB1_IMAGE_DIRECTORY = Path('../images/lab1') # change!
-    LAB1_IMAGE_DIRECTORY = Path('../tsbb33-datasets/bacchus') # change!
+    LAB1_IMAGE_DIRECTORY = Path('tsbb33-datasets/bacchus') # change!
 
 if not LAB1_IMAGE_DIRECTORY.exists():
     raise RuntimeError("Image directory '{}' does not exist. Try setting the CVL_LAB1_IMAGEDIR environment variable".format(LAB1_IMAGE_DIRECTORY))

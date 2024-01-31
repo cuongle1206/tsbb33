@@ -1,0 +1,53 @@
+calibrate 9247 9275 "IMG_%04d.png" 0 5 0
+Assuming chessboard with 6x8 inner corners.
+Training set:
+Average reprojection error for 23 frames = 1.18451
+Test set:
+Average reprojection error for 5 frames = 1.0765
+Refined solution:
+image size = 1512,2016
+K = [1687.485586457466, 0, 759.0993201653973;
+ 0, 1684.572188484964, 996.2262648607056;
+ 0, 0, 1]
+dist_coeffs = 0 0 0 0 0
+
+
+calibrate 9247 9275 "IMG_%04d.png" 2 5 0
+Assuming chessboard with 6x8 inner corners.
+Training set:
+Average reprojection error for 23 frames = 0.848577
+Test set:
+Average reprojection error for 5 frames = 0.85577
+Refined solution:
+image size = 1512,2016
+K = [1666.105154751542, 0, 760.7757950355166;
+ 0, 1662.115743588063, 996.2644927244114;
+ 0, 0, 1]
+dist_coeffs = 0.128455 -0.402564 0 0 0
+
+calibrate 9247 9275 "IMG_%04d.png" 3 5 0
+Assuming chessboard with 6x8 inner corners.
+Training set:
+Average reprojection error for 23 frames = 0.789255
+Test set:
+Average reprojection error for 5 frames = 0.702743
+Refined solution:
+image size = 1512,2016
+K = [1660.38999659418, 0, 760.2118640748802;
+ 0, 1656.599208679854, 996.4990329782082;
+ 0, 0, 1]
+dist_coeffs = 0.268963 -1.77681 0 0 3.81055
+
+calibrate 9247 9275 "IMG_%04d.png" 5 5 0
+Assuming chessboard with 6x8 inner corners.
+Training set:
+Average reprojection error for 23 frames = 0.780619
+Test set:
+Average reprojection error for 5 frames = 0.678202
+Refined solution:
+image size = 1512,2016
+K = [1660.076384971925, 0, 763.9663384634628;
+ 0, 1656.285062933074, 986.3176281647676;
+ 0, 0, 1]
+dist_coeffs = 0.260831 -1.67584 -0.00265474 0.00115126 3.48227
+
